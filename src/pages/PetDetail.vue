@@ -166,7 +166,7 @@
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { usePetStore, type WeightRecord } from '../stores/petStore'
-import { format } from 'date-fns'
+// import { format } from 'date-fns'
 
 const router = useRouter()
 const route = useRoute()
@@ -245,7 +245,7 @@ const yLabels = computed(() => {
 // x-axis labels
 const xLabelPoints = computed(() => {
   const pts = chartPoints.value
-  if (pts.length <= 1) return pts.map((p, i) => ({ x: p.x, label: sameDay.value ? p.time : formatShort(p.date) }))
+  if (pts.length <= 1) return pts.map((p) => ({ x: p.x, label: sameDay.value ? p.time : formatShort(p.date) }))
   const step = Math.max(1, Math.floor(pts.length / 5))
   return pts.filter((_, i) => i % step === 0 || i === pts.length - 1)
     .map(p => ({ x: p.x, label: sameDay.value ? p.time : formatShort(p.date) }))
@@ -314,6 +314,7 @@ const submitForm = () => {
 }
 
 const deleteRecord = (id: string) => {
+  // eslint-disable-next-line no-undef
   if (confirm('確定要刪除這筆記錄嗎？')) {
     petStore.deleteWeightRecord(id)
   }

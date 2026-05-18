@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "axios": "^1.6.0",
@@ -16,8 +18,12 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^10.4.0",
+    "eslint-plugin-vue": "^10.9.1",
     "typescript": "^5.4.0",
+    "typescript-eslint": "^8.59.3",
     "vite": "^5.2.0",
     "vue-tsc": "^2.0.11"
   }
